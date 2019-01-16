@@ -12,10 +12,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
 
 public class Magic8Ball extends JFrame{
-		
+	JTextField messageLabel = new JTextField(" Ask a question and it will be answered (oooh ahhh) ");
 
 	public Magic8Ball() {
 		initGUI(); 
@@ -24,12 +25,15 @@ public class Magic8Ball extends JFrame{
 		setSize(400,100);  
 		setLocationRelativeTo(null); 
 		setVisible(true); 
-		setDefaultCloseOperation(EXIT_ON_CLOSE); 
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		
+		pack();
 	}
 	
 	private void initGUI() {
 		JLabel titleLabel = new JLabel("Magic 8 Ball");
-		Font titleFont = new  Font ("Times New Roman", Font.BOLD, 60);
+		Font titleFont = new  Font ("Times New Roman", Font.BOLD, 50);
 		titleLabel.setFont(titleFont);
 		titleLabel.setForeground(Color.WHITE);
 		titleLabel.setBackground(Color.BLACK);
@@ -43,11 +47,13 @@ public class Magic8Ball extends JFrame{
 		centerPanel.setBackground(Color.BLACK);
 		add(centerPanel, BorderLayout.CENTER);
 		//Dimension size = new Dimension(300,200);
+		 
+		centerPanel.add(messageLabel, BorderLayout.CENTER); 
 		
 		//BUTTON PANEL
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setBackground(Color.WHITE);
-		add(buttonPanel, BorderLayout.CENTER);
+		add(buttonPanel, BorderLayout.PAGE_END);
 		
 		//BUTTONS
 		JButton shake = new JButton("SHAKE");
@@ -55,22 +61,20 @@ public class Magic8Ball extends JFrame{
 		shake.setForeground(Color.WHITE);
 		shake.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
-				String input = JOptionPane.showInputDialog(" What do you want to know? ");
-				String newShake = shake(); 
+				//String newShake = shake(); 
 				shake(); 
 			}
 		});
 		buttonPanel.add(shake);
 		
-		//Font shakeFont = new  Font ("Broadway", Font.BOLD, 32);
-		//shake.setFont(shakeFont);
 	}
-		private String shake() { 
+		private void shake() { 
 			String [] shake = {" Without a doubt ", 
 					" No ", " Yes ", " You may rely on it ", 
 					" Very doubtful "}; 
 			int random = new Random().nextInt(shake.length); 
-			return shake[random];
+			//return shake[random];
+			messageLabel.setText(shake[random]); 
 			}
 		
 public static void main(String[] args) {
