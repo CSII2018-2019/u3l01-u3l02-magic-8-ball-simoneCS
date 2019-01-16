@@ -17,7 +17,7 @@ import javax.swing.UIManager;
 public class Magic8Ball extends JFrame{
 		
 
-	public void Toy() {
+	public Magic8Ball() {
 		initGUI(); 
 		setTitle(" Magic 8 Ball"); 
 		setResizable(true); 
@@ -30,7 +30,7 @@ public class Magic8Ball extends JFrame{
 	
 	private void initGUI() {
 		JLabel titleLabel = new JLabel("Magic 8 Ball");
-		Font titleFont = new  Font ("Broadway",Font.BOLD, 60);
+		Font titleFont = new  Font ("Times New Roman", Font.BOLD, 60);
 		titleLabel.setFont(titleFont);
 		titleLabel.setForeground(Color.WHITE);
 		titleLabel.setBackground(Color.BLACK);
@@ -70,7 +70,7 @@ public class Magic8Ball extends JFrame{
 					" No ", " Yes ", " You may rely on it ", 
 					" Very doubtful "}; 
 			int random = new Random().nextInt(shake.length); 
-			return shake[random]; 
+			return shake[random];
 			}
 		
 public static void main(String[] args) {
