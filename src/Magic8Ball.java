@@ -21,8 +21,7 @@ public class Magic8Ball extends JFrame{
 		initGUI(); 
 		setTitle(" Magic 8 Ball"); 
 		setResizable(true); 
-		setSize(400,100); 
-		pack(); 
+		setSize(400,100);  
 		setLocationRelativeTo(null); 
 		setVisible(true); 
 		setDefaultCloseOperation(EXIT_ON_CLOSE); 
@@ -35,7 +34,7 @@ public class Magic8Ball extends JFrame{
 		titleLabel.setForeground(Color.WHITE);
 		titleLabel.setBackground(Color.BLACK);
 		titleLabel.setOpaque(true);
-		//add the label to window
+		//add label to window
 		add(titleLabel, BorderLayout.PAGE_START);
 		titleLabel.setHorizontalAlignment(JLabel.CENTER); //left or right
 		
@@ -52,11 +51,12 @@ public class Magic8Ball extends JFrame{
 		
 		//BUTTONS
 		JButton shake = new JButton("SHAKE");
-		
 		shake.setBackground(Color.BLACK);
 		shake.setForeground(Color.WHITE);
 		shake.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
+				String input = JOptionPane.showInputDialog(" What do you want to know? ");
+				String newShake = shake(); 
 				shake(); 
 			}
 		});
